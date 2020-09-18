@@ -1,0 +1,62 @@
+name:                assignment4
+version:             0.1.0.0
+author:              Group
+maintainer:          Group
+copyright:           (c) 2017 Group
+category:            Teaching
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:
+      PerfectTree, Miniprivate
+  hs-source-dirs:
+      src
+  build-depends:
+                  base >=4.7 && <5 
+                , mtl
+                , criterion
+                , deepseq
+                , bytestring
+                , cryptonite
+                , base58-bytestring
+                , base16-bytestring
+  ghc-options:      -Wall
+  default-language: Haskell2010
+  
+executable valid
+  hs-source-dirs:      valid
+  main-is:             Main.hs
+  build-depends:       base >= 4.7 && < 5
+                       , assignment4
+  ghc-options:         -Wall -threaded -with-rtsopts=-N2
+  default-language:    Haskell2010
+  
+executable privatetoWIF
+  hs-source-dirs:      privatetoWIF
+  main-is:             Main.hs
+  build-depends:       base >= 4.7 && < 5
+                       , assignment4
+  ghc-options:         -Wall -threaded -with-rtsopts=-N2
+  default-language:    Haskell2010
+  
+executable wiftoPrivate
+  hs-source-dirs:      wiftoPrivate
+  main-is:             Main.hs
+  build-depends:       base >= 4.7 && < 5
+                       , assignment4
+  ghc-options:         -Wall -threaded -with-rtsopts=-N2
+  default-language:    Haskell2010
+  
+benchmark bench
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      benchmark 
+  main-is:             PerfectBench.hs
+  build-depends:       base >= 4.7 && < 5
+                     , containers
+                     , criterion                     
+                     , deepseq
+                     , mtl
+  ghc-options:         -Wall
+  default-language:    Haskell2010
